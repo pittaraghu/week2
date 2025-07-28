@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .form-group.gender {
+      display: flex;
+      gap: 10px;
+    }
+    .form-group.gender label {
+      display: inline;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .login-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .login-buttons button {
+      width: 48%;
+      background-color: #2196F3;
+    }
+    .login-buttons button.logout {
+      background-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Register</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
+
+      <div class="form-group gender">
+        <label>Gender:</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label><input type="radio" name="gender" value="female"> Female</label>
+        <label><input type="radio" name="gender" value="other"> Other</label>
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value="">Select</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="UK">UK</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="login-buttons">
+      <button onclick="login()">Login</button>
+      <button class="logout" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      alert("Registration successful!");
+      return true;
+    }
+
+    function login() {
+      alert("Login functionality not implemented yet.");
+    }
+
+    function logout() {
+      alert("Logout successful!");
+    }
+  </script>
+
+</body>
+</html>
